@@ -8,5 +8,11 @@ public class Tetromino {
     int y;
     Color color;
 
-    //move(),
+    public static void move(){
+        this.x = x;
+        this.y = y; //v gameboard na řádku 70 v metodě setTheStonesOnTheBoard přiřazuju konkrétní souřadnice
+
+
+
+    }
 }

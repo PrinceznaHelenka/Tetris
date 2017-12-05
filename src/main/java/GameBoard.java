@@ -25,10 +25,8 @@ public class GameBoard {
         return boardOfField;
     }
 
-    public void generateTetromino(){
-
-
-
+    public void Tetromino getTetromino(){
+        return
     }
 
 
