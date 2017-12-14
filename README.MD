@@ -1,4 +1,4 @@
-###Toto je hra Tetris od Princezny Helenky
+### Toto je hra Tetris od Princezny Helenky
 
 Jeden jeji kamarad na to kdysi rekl 
 
