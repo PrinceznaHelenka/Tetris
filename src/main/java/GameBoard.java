@@ -4,29 +4,43 @@ import java.awt.*;
 
 public class GameBoard {
 
-    private Field boardOfField[][];
-    Tetromino tetromino;
+    public GameBoard(){ //konstruktor
+
+        generateBoard();
+       // boardOfField[2][6].color = Color.red;
+        generateTetromino();
+
+    }
+
+    public Field boardOfField[][];
+    public Tetromino tetromino;
+
 
     int i, j;
 
     public void generateBoard() {
+        boardOfField = new Field[10][20];
         for (i = 0; i < 10; i++) {
             for (j = 0; j < 20; j++) {
-                boardOfField[i][j] = new Field(i,j, getColorOfTheField(i, j));
+                boardOfField[i][j] = new Field(i,j);
             }
         }
     }
 
-    public Color getColorOfTheField(int i, int j) {
-        return Color.getHSBColor(216, 30, 117); //random
+    public void generateTetromino(){
+        tetromino = new Tetromino(5,0, Color.red, this);
     }
 
     public Field[][] getBoardOfField() {
         return boardOfField;
     }
 
-    public void Tetromino getTetromino(){
-        return
+    public Tetromino getTetromino(){
+        return tetromino;
+    }
+
+    public void killTetromino(){
+        tetromino = null;
     }
 
 
