@@ -15,7 +15,6 @@ public class GameBoard {
     public Field boardOfField[][];
     public Tetromino tetromino;
 
-
     int i, j;
 
     public void generateBoard() {
@@ -42,6 +41,5 @@ public class GameBoard {
     public void killTetromino(){
         tetromino = null;
     }
-
 
 }

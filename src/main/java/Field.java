@@ -26,6 +26,5 @@ public class Field {
     public Color getColorOfField() {
         return color;
     }
-
 }
 //public boolean getAvailability(){return isAvaiable();}

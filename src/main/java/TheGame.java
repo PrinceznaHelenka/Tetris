@@ -68,6 +68,7 @@ public class TheGame implements Runnable {
 
         if (pocetPlnychPoli == 10) {
             System.out.println("DELETE ROW");
+
         }
     }
 
