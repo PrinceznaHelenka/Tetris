@@ -34,7 +34,7 @@ public class TheGame implements Runnable {
             if (tetromino.move()!=1){ //tetromino se ještě ani jednou nepohlo
                 //endOfGame
                 //Frame.getFrames()
-                gui = null;
+                System.out.println("gameover");
                 //gui.remove(gui);
             }
 
