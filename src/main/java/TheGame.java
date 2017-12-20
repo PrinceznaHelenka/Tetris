@@ -10,9 +10,7 @@ public class TheGame implements Runnable {
     private GUI gui;
 
     public static void main(String[] args) {
-
         (new Thread(new TheGame())).start();
-
     }
 
     public TheGame(){
@@ -68,12 +66,9 @@ public class TheGame implements Runnable {
 
         }
 
-        if (pocetPlnychPoli == 10){
-            for (i = 0; i <= 9; i++){
-                gameBoard.boardOfField[i][tetromino.getY()] = null;
-            }
+        if (pocetPlnychPoli == 10) {
+            System.out.println("DELETE ROW");
         }
-
     }
 
     @Override

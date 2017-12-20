@@ -42,12 +42,12 @@ public class Tetromino{
         int i = 1;
         int currentY = 0;
 
-        while (gameBoard.boardOfField[getX()][getY() + i].isAvaiable() == false){
+        while (gameBoard.boardOfField[getX()][getY() + i].isAvaiable()){
             i++;
             currentY = getY();
         }
 
-        y = currentY - 1;
+        y = currentY + i - 2;
         System.out.println(currentY);
         System.out.println(y);
 
