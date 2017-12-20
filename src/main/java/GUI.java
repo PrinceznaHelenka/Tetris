@@ -61,7 +61,7 @@ public class GUI extends JFrame implements KeyListener{
 
     }
 
-    public void keyPressed(KeyEvent evt) {
+    public void keyPressed(KeyEvent evt) { //POŠÉFIT, ABY MI NELEZLY TTMNA ZA ROH
 
         int key = evt.getKeyCode();  // keyboard code for the pressed key
 

@@ -35,18 +35,44 @@ public class TheGame implements Runnable {
                 //endOfGame
                 //Frame.getFrames()
                 System.out.println("gameover");
-                //gui.remove(gui);
+            }
+            else{
+
+                tetromino.die();
+                deleteRow();
+                gameBoard.generateTetromino();
+                tetromino = gameBoard.getTetromino();
+
+                //kontroluju, jestli není delete row
             }
 
-            tetromino.die();
-            gameBoard.generateTetromino();
-            tetromino = gameBoard.getTetromino();
 
-            //kontroluju, jestli není delete row
 
         }
 
         gui.repaint();
+
+    }
+
+    private void deleteRow(){
+        int i = 0;
+        int pocetPlnychPoli = 0;
+        for (i = 0; i <= 9; i++){
+           if(gameBoard.boardOfField[i][tetromino.getY()].isAvaiable() == false){ //pokud je plny
+               System.out.println("plny");
+               pocetPlnychPoli++;
+           }
+           else{
+               System.out.println("dira");
+           }
+
+        }
+
+        if (pocetPlnychPoli == 10){
+            for (i = 0; i <= 9; i++){
+                gameBoard.boardOfField[i][tetromino.getY()] = null;
+            }
+        }
 
     }
 

@@ -43,10 +43,13 @@ public class Tetromino{
         int currentY = 0;
 
         while (gameBoard.boardOfField[getX()][getY() + i].isAvaiable() == false){
-            currentY = getY();
             i++;
+            currentY = getY();
         }
+
         y = currentY - 1;
+        System.out.println(currentY);
+        System.out.println(y);
 
         return y;
     }
@@ -66,9 +69,10 @@ public class Tetromino{
     public void die(){
         //souřadnice z ttmna se propíše do fieldu, a to bude navždy plné - ukládání na dno
         gameBoard.boardOfField[x][y] = gameBoard.boardOfField[getX()][getY()];
-
-        gameBoard.boardOfField[x][y].color = this.getColorOfTetromino(); //chci, aby to getovalo color ttmna a ne fieldu
-        //   gameBoard.boardOfField[getX()][getY()].isAvaiable() = false;
+        //TADY BUDE TUŠÍM NĚCO FAKT BLBĚ
+        gameBoard.boardOfField[x][y].color = this.getColorOfTetromino();
+        //chci, aby to getovalo color ttmna a ne fieldu
+        //gameBoard.boardOfField[getX()][getY()].isAvaiable() = false;
         //"vyresetuje se a
         gameBoard.killTetromino();
     }
