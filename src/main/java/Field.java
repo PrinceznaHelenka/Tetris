@@ -11,6 +11,7 @@ public class Field {
     public Field(int i, int j) {
         this.x = i;
         this.y = j;
+
     }
 
     public boolean isAvaiable(){
@@ -25,6 +26,7 @@ public class Field {
 
     public Color getColorOfField() {
         return color;
+
     }
 }
 //public boolean getAvailability(){return isAvaiable();}

@@ -67,23 +67,30 @@ public class Tetromino{
     }
 
     public void die(){
+
         //souřadnice z ttmna se propíše do fieldu, a to bude navždy plné - ukládání na dno
         gameBoard.boardOfField[x][y] = gameBoard.boardOfField[getX()][getY()];
+
         //TADY BUDE TUŠÍM NĚCO FAKT BLBĚ
         gameBoard.boardOfField[x][y].color = this.getColorOfTetromino();
+
         //chci, aby to getovalo color ttmna a ne fieldu
         //gameBoard.boardOfField[getX()][getY()].isAvaiable() = false;
         //"vyresetuje se a
         gameBoard.killTetromino();
+
     }
 
     public int getX(){
+
         return x;
     }
     public int getY(){
+
         return y;
     }
     public Color getColorOfTetromino(){
+
         return color;
     }
 

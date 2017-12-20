@@ -63,12 +63,10 @@ public class TheGame implements Runnable {
            else{
                System.out.println("dira");
            }
-
         }
 
         if (pocetPlnychPoli == 10) {
             System.out.println("DELETE ROW");
-
         }
     }
 
