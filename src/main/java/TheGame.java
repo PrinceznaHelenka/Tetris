@@ -27,15 +27,15 @@ public class TheGame implements Runnable {
             //kontroluju jestli je první kolo -- zvládl move
             //jestli ano -> endOfGame();
 
-            if (tetromino.move()!=1){ //tetromino se ještě ani jednou nepohlo
+            if (!tetromino.canIMove()){ //tetromino se ještě ani jednou nepohlo
                 //endOfGame
-                //Frame.getFrames()
                 System.out.println("gameover");
+
             }
             else{
 
                 tetromino.die();
-                deleteRow();
+                CheckIfCantBedeletedRow();
                 gameBoard.generateTetromino();
                 tetromino = gameBoard.getTetromino();
 
@@ -45,23 +45,30 @@ public class TheGame implements Runnable {
         gui.repaint();
     }
 
-    private void deleteRow(){
-        int i = 0;
-        int pocetPlnychPoli = 0;
+    private void CheckIfCantBedeletedRow(){
+        int i;
+        int occupied = 0;
         for (i = 0; i <= 9; i++){
            if(gameBoard.boardOfField[i][tetromino.getY()].isAvaiable() == false){ //pokud je plny
                System.out.println("plny");
-               pocetPlnychPoli++;
+               occupied++;
            }
            else{
                System.out.println("dira");
            }
         }
 
-        if (pocetPlnychPoli == 10) {
+        if (occupied == 10) {
             System.out.println("DELETE ROW");
+            int RowToDelete = tetromino.getY();
+           // deleteRow();
         }
     }
+
+    private void deleteRow(int rowToDelete){
+
+    }
+
 
     @Override
     public void run() {

@@ -30,7 +30,6 @@ public class Tetromino{
         return x;
     }
     /*public int transformToAnotherShape(){ //šipka top
-
     }*/
 
     public int moveDown(){
@@ -56,7 +55,7 @@ public class Tetromino{
 
     public boolean canIMove(){ //domyslet
 
-       if (gameBoard.boardOfField[getX()][(getY()+2)].isAvaiable()){
+       if (gameBoard.boardOfField[getX()][(getY() + 2)].isAvaiable()){
            return true;
        }
        else {
@@ -93,5 +92,4 @@ public class Tetromino{
 
         return color;
     }
-
 }
