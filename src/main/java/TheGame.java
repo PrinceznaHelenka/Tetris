@@ -1,5 +1,6 @@
 package main.java;
 
+import java.awt.*;
 import java.util.Timer;
 
 public class TheGame implements Runnable {
@@ -32,6 +33,7 @@ public class TheGame implements Runnable {
 
             if (tetromino.move()!=1){ //tetromino se ještě ani jednou nepohlo
                 //endOfGame
+                //Frame.getFrames()
                 gui = null;
                 //gui.remove(gui);
             }
@@ -44,7 +46,6 @@ public class TheGame implements Runnable {
 
         }
 
-        System.out.println("Hraješ Helenčin Tetris ;)!");
         gui.repaint();
 
     }

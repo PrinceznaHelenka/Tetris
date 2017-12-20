@@ -24,7 +24,7 @@ public class Tetromino{
 
     public boolean canIMove(){ //domyslet
 
-       if (gameBoard.boardOfField[x][y+1].isAvaiable()){
+       if (gameBoard.boardOfField[getX()][(getY()+1)].isAvaiable()){
            return true;
        }
        else {

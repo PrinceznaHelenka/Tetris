@@ -15,7 +15,7 @@ public class Field {
 
     public boolean isAvaiable(){
 
-        if (color == null){
+        if (color == null && y < 19){
             return true;
         }
         else {
