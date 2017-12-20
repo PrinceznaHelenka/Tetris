@@ -1,7 +1,5 @@
 package main.java;
-
 import java.awt.*;
-import java.util.Timer;
 
 public class TheGame implements Runnable {
 
@@ -43,13 +41,8 @@ public class TheGame implements Runnable {
 
                 //kontroluju, jestli není delete row
             }
-
-
-
         }
-
         gui.repaint();
-
     }
 
     private void deleteRow(){
