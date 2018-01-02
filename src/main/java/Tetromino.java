@@ -21,19 +21,26 @@ public class Tetromino{
        y = y + 1;
        return 1;
     }
+
     public int moveRight(){
-        x = x + 1;
+        if (x < 9){
+            x = x + 1;
+        }
         return x;
     }
     public int moveLeft(){
-        x = x - 1;
+        if (x>0){
+            x = x - 1;
+        }
         return x;
     }
     /*public int transformToAnotherShape(){ //šipka top
     }*/
 
     public int moveDown(){
-        y = y + 1;
+        if (gameBoard.boardOfField[getX()][getY() + 2].isAvaiable() == true){
+            y = y+1;
+        }
         return y;
     }
 
@@ -70,7 +77,6 @@ public class Tetromino{
         //souřadnice z ttmna se propíše do fieldu, a to bude navždy plné - ukládání na dno
         gameBoard.boardOfField[x][y] = gameBoard.boardOfField[getX()][getY()];
 
-        //TADY BUDE TUŠÍM NĚCO FAKT BLBĚ
         gameBoard.boardOfField[x][y].color = this.getColorOfTetromino();
 
         //chci, aby to getovalo color ttmna a ne fieldu
