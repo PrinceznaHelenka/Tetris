@@ -1,4 +1,6 @@
 package main.java;
+import com.sun.rowset.internal.Row;
+
 import java.awt.*;
 
 public class TheGame implements Runnable {
@@ -27,10 +29,10 @@ public class TheGame implements Runnable {
             //kontroluju jestli je první kolo -- zvládl move
             //jestli ano -> endOfGame();
 
-            if (!tetromino.canIMove()){ //tetromino se ještě ani jednou nepohlo
+            if (tetromino.move()!=1){ //tetromino se ještě ani jednou nepohlo
                 //endOfGame
+                //Frame.getFrames()
                 System.out.println("gameover");
-
             }
             else{
 
@@ -50,30 +52,40 @@ public class TheGame implements Runnable {
         int occupied = 0;
         for (i = 0; i <= 9; i++){
            if(gameBoard.boardOfField[i][tetromino.getY()].isAvaiable() == false){ //pokud je plny
-               System.out.println("plny");
                occupied++;
-           }
-           else{
-               System.out.println("dira");
            }
         }
 
         if (occupied == 10) {
             System.out.println("DELETE ROW");
-            int RowToDelete = tetromino.getY();
-           // deleteRow();
+
+            // deleteRow();
+
+            for (int j = tetromino.getY(); j > 0; j--)
+            {
+                for (i = 0; i < 9; i++)
+                {
+                    gameBoard.boardOfField[i][j] = gameBoard.boardOfField[i][j - 1];
+
+                }
+            }
+
+            /*for (i = 0; i<=9; i++){
+                 gameBoard.boardOfField[i][tetromino.getY()].color = Color.blue;
+                 gameBoard.boardOfField[i][tetromino.getY()] = gameBoard.boardOfField[i][tetromino.getY() + 1];
+
+
+            }*/
         }
     }
 
-    private void deleteRow(int rowToDelete){
 
-    }
 
 
     @Override
     public void run() {
         while (true){
-            play();
+             play();
             try {
                 Thread.sleep(400);
             } catch (InterruptedException e) {
