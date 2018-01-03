@@ -18,18 +18,36 @@ public class Tetromino{
     }
 
     public int move(){
-       y = y + 1;
-       return 1;
+        y = y+1;
+        return 1;
     }
 
+  /*  public int move(){
+        if (gameBoard.boardOfField[getX()][getY() + 1].isAvaiable() == true){
+            y = y+1;
+            return 1;
+        }
+        else {
+           if( gameBoard.boardOfField[getX()][getY()].isAvaiable() == true){
+               y = y+1;
+               return 1;
+           }
+           else{
+               System.out.println("GAMEOVER");
+           }
+
+            return 2;}
+
+    }*/
+
     public int moveRight(){
-        if (x < 9){
+        if (x < 9 && gameBoard.boardOfField[getX()+1][getY()].isAvaiable() == true){
             x = x + 1;
         }
         return x;
     }
     public int moveLeft(){
-        if (x>0){
+        if (x>0 && gameBoard.boardOfField[getX()-1][getY()].isAvaiable() == true){
             x = x - 1;
         }
         return x;
@@ -85,6 +103,7 @@ public class Tetromino{
         gameBoard.killTetromino();
 
     }
+
 
     public int getX(){
 

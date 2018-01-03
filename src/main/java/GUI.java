@@ -91,7 +91,4 @@ public class GUI extends JFrame implements KeyListener{
     public void keyTyped(KeyEvent evt) {
     }
 
-    public void deleteRow(){
-
-    }
 }
