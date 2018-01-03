@@ -67,7 +67,7 @@ public class TheGame implements Runnable {
 
             for (int j = tetromino.getY(); j > 0; j--)
             {
-                for (i = 0; i < 9; i++)
+                for (i = 0; i < 10; i++)
                 {
                     gameBoard.boardOfField[i][j] = gameBoard.boardOfField[i][j - 1];
 
