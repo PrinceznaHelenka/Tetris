@@ -84,6 +84,10 @@ public class GUI extends JFrame implements KeyListener{
             System.out.println("space");
             tetromino.moveDownDown();
         }
+      //  else if (key == KeyEvent.VK_P) {  // right arrow key
+      //      System.out.println("pause");
+      //      thegame.pause();
+      //  }
 
     }
     public void keyReleased(KeyEvent evt) {
