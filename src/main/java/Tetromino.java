@@ -8,6 +8,7 @@ public class Tetromino{
     private int y;
     private Color color;
     private GameBoard gameBoard;
+    private boolean firstMove = true;
 
 
     public Tetromino(int x, int y, Color color, GameBoard gameBoard){
@@ -19,7 +20,12 @@ public class Tetromino{
 
     public int move(){
         y = y+1;
+        firstMove = false;
         return 1;
+    }
+
+    public boolean isFirstMove(){
+        return firstMove;
     }
 
   /*  public int move(){
@@ -62,8 +68,8 @@ public class Tetromino{
         return y;
     }
 
-    public int moveDownDown(){
-        int i = 1;
+    public void moveDownDown(){
+       /* int i = 1;
         int currentY = 0;
 
         while (gameBoard.boardOfField[getX()][getY() + i].isAvaiable()){
@@ -75,12 +81,18 @@ public class Tetromino{
         System.out.println(currentY);
         System.out.println(y);
 
-        return y;
+        return y;*/
+
+        while (canIMove()){
+            move();
+        }
+
+
     }
 
     public boolean canIMove(){ //domyslet
 
-       if (gameBoard.boardOfField[getX()][(getY() + 2)].isAvaiable()){
+       if (gameBoard.boardOfField[getX()][(getY() + 1)].isAvaiable()){
            return true;
        }
        else {

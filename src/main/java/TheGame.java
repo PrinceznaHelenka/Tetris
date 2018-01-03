@@ -8,6 +8,7 @@ public class TheGame implements Runnable {
     private Tetromino tetromino;
     private GUI gui;
 
+
     public static void main(String[] args) {
         (new Thread(new TheGame())).start();
     }
@@ -20,20 +21,21 @@ public class TheGame implements Runnable {
         tetromino = gameBoard.getTetromino();
     }
 
-    public void play(){
+    public boolean play(){
 
-        if (tetromino.canIMove() == true){
+
+        if (tetromino.canIMove()){
             tetromino.move();
         }
         else{
             //kontroluju jestli je první kolo -- zvládl move
             //jestli ano -> endOfGame();
-            if (tetromino.getY()>0){
 
-            if (tetromino.move()!=1){ //tetromino se ještě ani jednou nepohlo
+            if (tetromino.isFirstMove()){ //tetromino se ještě ani jednou nepohlo
                 //endOfGame
                 //Frame.getFrames()
                 System.out.println("gameover");
+                return false;
             }
             else{
 
@@ -43,9 +45,10 @@ public class TheGame implements Runnable {
                 tetromino = gameBoard.getTetromino();
 
                 //kontroluju, jestli není delete row
-            }}
+            }
         }
         gui.repaint();
+        return true;
     }
 
     private void CheckIfCantBedeletedRow(){
@@ -80,7 +83,8 @@ public class TheGame implements Runnable {
     @Override
     public void run() {
         while (true){
-             play();
+            if (play()==false){break;}
+
             try {
                 Thread.sleep(400);
             } catch (InterruptedException e) {
