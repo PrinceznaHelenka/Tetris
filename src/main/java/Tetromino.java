@@ -91,14 +91,15 @@ public class Tetromino{
     }
 
     public boolean canIMove(){ //domyslet
-
+         if (getY()==19){
+            return false;
+        }
        if (gameBoard.boardOfField[getX()][(getY() + 1)].isAvaiable()){
            return true;
        }
        else {
            return false;
        }
-        //return !((y+1)==19);
 
     }
 
