@@ -75,6 +75,7 @@ public class GUI extends JFrame implements KeyListener{
         }
         else if (key == KeyEvent.VK_UP) {  // up arrow key
             System.out.println("top");
+            tetromino.transformShape();
         }
         else if (key == KeyEvent.VK_DOWN) {  // down arrow key
             System.out.println("down");
@@ -82,7 +83,7 @@ public class GUI extends JFrame implements KeyListener{
         }
         else if (key == KeyEvent.VK_SPACE){
             System.out.println("space");
-            tetromino.moveDownDown();
+           // tetromino.moveDownDown();
         }
       //  else if (key == KeyEvent.VK_P) {  // right arrow key
       //      System.out.println("pause");

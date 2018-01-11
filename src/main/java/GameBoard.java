@@ -7,7 +7,6 @@ public class GameBoard {
     public GameBoard(){ //konstruktor
 
         generateBoard();
-       // boardOfField[2][6].color = Color.red;
         generateTetromino();
 
     }
@@ -27,7 +26,67 @@ public class GameBoard {
     }
 
     public void generateTetromino(){
-        tetromino = new Tetromino(5,0, Color.red, this);
+        tetromino = new Tetromino() {
+            @Override
+            public int move() {
+                return 0;
+            }
+
+            @Override
+            public boolean isFirstMove() {
+                return false;
+            }
+
+            @Override
+            public int moveRight() {
+                return 0;
+            }
+
+            @Override
+            public int moveLeft() {
+                return 0;
+            }
+
+            @Override
+            public int moveDown() {
+                return 0;
+            }
+
+          //  @Override
+          //  public void moveDownDown() {
+
+          //  }
+
+            @Override
+            public int transformShape() {
+                return 0;
+            }
+
+        //    @Override
+        //    public boolean canIMove() {
+        //        return false;
+        //    }
+
+            @Override
+            public void die() {
+
+            }
+
+            @Override
+            public int getX() {
+                return 5;
+            }
+
+            @Override
+            public int getY() {
+                return 0;
+            }
+
+            @Override
+            public Color getColorOfTetromino() {
+                return Color.MAGENTA;
+            }
+        };
     }
 
     public Field[][] getBoardOfField() {

@@ -1,7 +1,4 @@
 package main.java;
-import com.sun.rowset.internal.Row;
-
-import java.awt.*;
 
 public class TheGame implements Runnable {
     private GameBoard gameBoard;
@@ -17,23 +14,23 @@ public class TheGame implements Runnable {
 
         gameBoard = new GameBoard();
         gui = new GUI(gameBoard);
-        gameBoard.generateTetromino();
-        tetromino = gameBoard.getTetromino();
+        gameBoard.generateTetromino(); //ZMENA --> vygenerovat náhodné tetromino
+        tetromino = gameBoard.getTetromino(); //ZMENA
     }
 
     public boolean play(){
 
 
-        if (tetromino.canIMove()){
-            tetromino.move();
-        }
-        else{
+    //    if (tetromino.canIMove()){
+    //        tetromino.move();
+    //    }
+    //    else{
             //kontroluju jestli je první kolo -- zvládl move
             //jestli ano -> endOfGame();
 
+        tetromino.move();
+
             if (tetromino.isFirstMove()){ //tetromino se ještě ani jednou nepohlo
-                //endOfGame
-                //Frame.getFrames()
                 System.out.println("gameover");
                 return false;
             }
@@ -46,7 +43,7 @@ public class TheGame implements Runnable {
 
                 //kontroluju, jestli není delete row
             }
-        }
+        //}
         gui.repaint();
         return true;
     }
@@ -70,14 +67,10 @@ public class TheGame implements Runnable {
                 for (i = 0; i < 10; i++)
                 {
                     gameBoard.boardOfField[i][j] = gameBoard.boardOfField[i][j - 1];
-
                 }
             }
-
         }
     }
-
-
 
 
     @Override
