@@ -52,9 +52,10 @@ public class GUI extends JFrame implements KeyListener{
                 }
             }
             if (tetromino != null) {
-                graphics.drawRect(tetromino.getX() * size, tetromino.getY() * size, size, size);
-                graphics.setColor(tetromino.getColorOfTetromino());
-                graphics.fillRect(tetromino.getX() * size, tetromino.getY() * size, size - 1, size - 1);
+                for (j=0; j < 4; j++){
+                    graphics.setColor(tetromino.getColorOfTetromino());
+                    graphics.drawRect(tetromino.getFieldCoord()[j].x * size, tetromino.getFieldCoord()[j].y * size, size, size);
+                graphics.fillRect(tetromino.getFieldCoord()[j].x * size, tetromino.getFieldCoord()[j].y * size, size - 1, size - 1);}
             }
 
         }
@@ -77,13 +78,9 @@ public class GUI extends JFrame implements KeyListener{
             System.out.println("top");
             tetromino.transformShape();
         }
-        else if (key == KeyEvent.VK_DOWN) {  // down arrow key
-            System.out.println("down");
-            tetromino.moveDown();
-        }
         else if (key == KeyEvent.VK_SPACE){
             System.out.println("space");
-           // tetromino.moveDownDown();
+            tetromino.moveDownDown();
         }
       //  else if (key == KeyEvent.VK_P) {  // right arrow key
       //      System.out.println("pause");

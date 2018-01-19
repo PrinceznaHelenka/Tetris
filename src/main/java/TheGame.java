@@ -14,21 +14,17 @@ public class TheGame implements Runnable {
 
         gameBoard = new GameBoard();
         gui = new GUI(gameBoard);
-        gameBoard.generateTetromino(); //ZMENA --> vygenerovat náhodné tetromino
-        tetromino = gameBoard.getTetromino(); //ZMENA
+        gameBoard.generateTetromino();
+        tetromino = gameBoard.getTetromino();
     }
 
     public boolean play(){
-
-
-    //    if (tetromino.canIMove()){
-    //        tetromino.move();
-    //    }
-    //    else{
+        if (tetromino.canIMove()){
+            tetromino.move();
+       }
+       else{
             //kontroluju jestli je první kolo -- zvládl move
             //jestli ano -> endOfGame();
-
-        tetromino.move();
 
             if (tetromino.isFirstMove()){ //tetromino se ještě ani jednou nepohlo
                 System.out.println("gameover");
@@ -37,18 +33,18 @@ public class TheGame implements Runnable {
             else{
 
                 tetromino.die();
-                CheckIfCantBedeletedRow();
+               // CheckIfCantBedeletedRow();
                 gameBoard.generateTetromino();
                 tetromino = gameBoard.getTetromino();
 
                 //kontroluju, jestli není delete row
             }
-        //}
+        }
         gui.repaint();
         return true;
     }
 
-    private void CheckIfCantBedeletedRow(){
+  /*  private void CheckIfCantBedeletedRow(){
         int i;
         int occupied = 0;
         for (i = 0; i <= 9; i++){
@@ -70,7 +66,8 @@ public class TheGame implements Runnable {
                 }
             }
         }
-    }
+   }*/
+
 
 
     @Override

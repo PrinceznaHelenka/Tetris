@@ -3,18 +3,15 @@ package main.java;
 import java.awt.*;
 
 public interface Tetromino {
-        int Shape = 1;
 
+        Field[] getFieldCoord();
         int move();
         boolean isFirstMove();
-        int moveRight();
-        int moveLeft();
-        int moveDown();
-     //   void moveDownDown();
-        int transformShape();
-     //   boolean canIMove();
+        void moveRight();
+        void moveLeft();
+        void moveDownDown();
+        void transformShape();
+        boolean canIMove();
         void die();
-        int getX();
-        int getY();
         Color getColorOfTetromino();
 }

@@ -2,112 +2,54 @@ package main.java;
 
 import java.awt.*;
 
-public class Sshape implements Tetromino{
+public class Sshape extends main.java.Shape implements Tetromino{
 
-    int x;
-    private int y;
     private Color color;
     private GameBoard gameBoard;
-    private boolean firstMove = true;
+
+    Field fieldcoord[];
 
 
-    public Sshape(int x, int y, Color color, GameBoard gameBoard){
-        this.x = x;
-        this.y = y;
+    private boolean stav = true;
+
+
+    public Sshape(Color color, GameBoard gameBoard){
         this.color = color;
         this.gameBoard = gameBoard;
-    }
-    private boolean[][] Sshape1= {
-            { false, true, true},
-            { true,  true, false},
-    };
 
-    private boolean[][] Sshape2= {
-            { true, false},
-            { true, true},
-            { false, true},
+        fieldcoord = new Field[4];
 
-    };
-    public int move(){
-        y = y+1;
-        firstMove = false;
-        return 1;
+        fieldcoord[0] = new Field(4, 1);
+        fieldcoord[1] = new Field(5, 1);
+        fieldcoord[2] = new Field(5, 0);
+        fieldcoord[3] = new Field(6, 0);
+
     }
 
-    public boolean isFirstMove(){
-        return firstMove;
-    }
 
-    public int moveRight(){
-        if (x < 9 && gameBoard.boardOfField[getX()+1][getY()].isAvaiable() == true){
-            x = x + 1;
+    public void transformShape(){//šipka top
+
+        if (stav == true){
+            fieldcoord[0].x++;
+            fieldcoord[1].y--;
+            fieldcoord[2].x--;
+            fieldcoord[3].y--;
+            fieldcoord[3].x = fieldcoord[3].x - 2;
+
+            stav = false;
         }
-        return x;
-    }
-    public int moveLeft(){
-        if (x>0 && gameBoard.boardOfField[getX()-1][getY()].isAvaiable() == true){
-            x = x - 1;
-        }
-        return x;
-    }
-    public int transformShape(){ //šipka top
-        if (Shape == 1){
-            return 2;
-        }
+
         else {
-            return 1;
-        }
-    }
 
-    public int moveDown(){
-        if (gameBoard.boardOfField[getX()][getY() + 2].isAvaiable() == true){
-            y = y+1;
-        }
-        return y;
-    }
-
-  /*  public void moveDownDown(){
-        while (canIMove()){
-            move();
+            fieldcoord[0].x--;
+            fieldcoord[1].y++;
+            fieldcoord[2].x++;
+            fieldcoord[3].y++;
+            fieldcoord[3].x = fieldcoord[3].x + 2;
+            stav = true;
         }
 
     }
 
-    public boolean canIMove(){ //domyslet
-        if (getY()==19){
-            return false;
-        }
-        if (gameBoard.boardOfField[getX()][(getY() + 1)].isAvaiable()){
-            return true;
-        }
-        else {
-            return false;
-        }
 
-    }*/
-
-    public void die(){
-
-        //souřadnice z ttmna se propíše do fieldu, a to bude navždy plné - ukládání na dno
-        gameBoard.boardOfField[x][y] = gameBoard.boardOfField[getX()][getY()];
-
-        gameBoard.boardOfField[x][y].color = this.getColorOfTetromino();
-
-        //chci, aby to getovalo color ttmna a ne fieldu
-        //gameBoard.boardOfField[getX()][getY()].isAvaiable() = false;
-        //"vyresetuje se a
-        gameBoard.killTetromino();
-
-    }
-
-
-    public int getX(){
-        return x;
-    }
-    public int getY(){
-        return y;
-    }
-    public Color getColorOfTetromino(){
-        return color;
-    }
 }

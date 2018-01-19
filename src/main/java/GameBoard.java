@@ -16,6 +16,8 @@ public class GameBoard {
 
     int i, j;
 
+    int stav = 1;
+
     public void generateBoard() {
         boardOfField = new Field[10][20];
         for (i = 0; i < 10; i++) {
@@ -26,67 +28,17 @@ public class GameBoard {
     }
 
     public void generateTetromino(){
-        tetromino = new Tetromino() {
-            @Override
-            public int move() {
-                return 0;
-            }
 
-            @Override
-            public boolean isFirstMove() {
-                return false;
-            }
+        if (stav == 1){
+            tetromino = new Sshape(Color.magenta, this);
+            stav = 2;
+        }
+        if(stav == 2){
+            tetromino = new Tshape(Color.green, this);
+            stav = 1;
+        }
 
-            @Override
-            public int moveRight() {
-                return 0;
-            }
-
-            @Override
-            public int moveLeft() {
-                return 0;
-            }
-
-            @Override
-            public int moveDown() {
-                return 0;
-            }
-
-          //  @Override
-          //  public void moveDownDown() {
-
-          //  }
-
-            @Override
-            public int transformShape() {
-                return 0;
-            }
-
-        //    @Override
-        //    public boolean canIMove() {
-        //        return false;
-        //    }
-
-            @Override
-            public void die() {
-
-            }
-
-            @Override
-            public int getX() {
-                return 5;
-            }
-
-            @Override
-            public int getY() {
-                return 0;
-            }
-
-            @Override
-            public Color getColorOfTetromino() {
-                return Color.MAGENTA;
-            }
-        };
+        //sem prijsou dlasi Lshape, necoShape a pak se náhodně zvolí
     }
 
     public Field[][] getBoardOfField() {
