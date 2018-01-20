@@ -52,13 +52,22 @@ public class GUI extends JFrame implements KeyListener{
                 }
             }
             if (tetromino != null) {
-                for (j=0; j < 4; j++){
+                for (j = 0; j < 4; j++) {
                     graphics.setColor(tetromino.getColorOfTetromino());
                     graphics.drawRect(tetromino.getFieldCoord()[j].x * size, tetromino.getFieldCoord()[j].y * size, size, size);
-                graphics.fillRect(tetromino.getFieldCoord()[j].x * size, tetromino.getFieldCoord()[j].y * size, size - 1, size - 1);}
+                    graphics.fillRect(tetromino.getFieldCoord()[j].x * size, tetromino.getFieldCoord()[j].y * size, size - 1, size - 1);
+                }
             }
 
-        }
+    }
+
+}
+
+    public void gameOver(Graphics graphics) {
+        graphics.setColor(Color.white);
+        graphics.setFont(new Font("default", Font.BOLD, 30));
+        graphics.drawString("GAME OVER", 50, 300);
+        graphics.drawString("Skore: " + gameBoard.deleteRow(0), 50, 300);
 
     }
 

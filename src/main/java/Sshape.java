@@ -4,12 +4,6 @@ import java.awt.*;
 
 public class Sshape extends main.java.Shape implements Tetromino{
 
-    private Color color;
-    private GameBoard gameBoard;
-
-    Field fieldcoord[];
-
-
     private boolean stav = true;
 
 

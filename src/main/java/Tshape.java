@@ -3,11 +3,6 @@ package main.java;
 import java.awt.*;
 
 public class Tshape extends Shape implements Tetromino{
-    private Color color;
-    private GameBoard gameBoard;
-
-    Field fieldcoord[];
-
 
     private int stav = 1;
 
@@ -27,7 +22,28 @@ public class Tshape extends Shape implements Tetromino{
 
     public void transformShape(){//šipka top
 
-        if (stav == 4){
+
+        if (stav == 1){
+            fieldcoord[0].x++;
+            fieldcoord[0].y++;
+            stav = 2;
+        }
+
+        else if (stav == 2){
+            fieldcoord[3].x--;
+            fieldcoord[3].y++;
+
+            stav = 3;
+        }
+
+        else if (stav == 3){
+            fieldcoord[2].x--;
+            fieldcoord[2].y--;
+
+            stav = 4;
+        }
+
+        else if (stav == 4){
             fieldcoord[0].x--;
             fieldcoord[0].y--;
             fieldcoord[2].x++;
@@ -36,22 +52,6 @@ public class Tshape extends Shape implements Tetromino{
             fieldcoord[3].y--;
 
             stav = 1;
-        }if (stav == 1){
-            fieldcoord[0].x++;
-            fieldcoord[0].y++;
-
-
-            stav = 2;
-        }if (stav == 3){
-            fieldcoord[3].x--;
-            fieldcoord[3].y++;
-
-            stav = 3;
-        }if (stav == 3){
-            fieldcoord[2].x--;
-            fieldcoord[2].y--;
-
-            stav = 4;
         }
 
 

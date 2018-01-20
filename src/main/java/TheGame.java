@@ -1,5 +1,7 @@
 package main.java;
 
+import java.awt.*;
+
 public class TheGame implements Runnable {
     private GameBoard gameBoard;
     private Tetromino tetromino;
@@ -19,6 +21,7 @@ public class TheGame implements Runnable {
     }
 
     public boolean play(){
+
         if (tetromino.canIMove()){
             tetromino.move();
        }
@@ -28,12 +31,16 @@ public class TheGame implements Runnable {
 
             if (tetromino.isFirstMove()){ //tetromino se ještě ani jednou nepohlo
                 System.out.println("gameover");
+
+                Graphics graphics = null;
+               // gui.gameOver(Graphics graphics);
+
                 return false;
             }
             else{
 
                 tetromino.die();
-               // CheckIfCantBedeletedRow();
+                checkIfCantBedeletedRow();
                 gameBoard.generateTetromino();
                 tetromino = gameBoard.getTetromino();
 
@@ -44,29 +51,16 @@ public class TheGame implements Runnable {
         return true;
     }
 
-  /*  private void CheckIfCantBedeletedRow(){
+    private void checkIfCantBedeletedRow() {
         int i;
-        int occupied = 0;
-        for (i = 0; i <= 9; i++){
-           if(gameBoard.boardOfField[i][tetromino.getY()].isAvaiable() == false){ //pokud je plny
-               occupied++;
-           }
-        }
+        int score = 0;
+      for (i = 0; i<20; i++){
+          if (gameBoard.isRowFull(i)){
+              gameBoard.deleteRow(i);
+          }
+      }
 
-        if (occupied == 10) {
-            System.out.println("DELETE ROW");
-
-            // deleteRow();
-
-            for (int j = tetromino.getY(); j > 0; j--)
-            {
-                for (i = 0; i < 10; i++)
-                {
-                    gameBoard.boardOfField[i][j] = gameBoard.boardOfField[i][j - 1];
-                }
-            }
-        }
-   }*/
+    }
 
 
 

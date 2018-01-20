@@ -2,21 +2,16 @@ package main.java;
 
 import java.awt.*;
 
-public class Shape {
+public abstract class Shape {
 
-    private Field fieldcoord[];
-    private Color color;
-    private GameBoard gameBoard;
-    private boolean firstMove = true;
-    private boolean stav = true;
+    protected Field fieldcoord[];
+    protected Color color;
+    protected GameBoard gameBoard;
+    protected boolean firstMove = true;
+    protected boolean stav = true;
 
     public Shape() {
         fieldcoord = new Field[4];
-
-        fieldcoord[0] = new Field(4, 1);
-        fieldcoord[1] = new Field(5, 1);        //WTF
-        fieldcoord[2] = new Field(5, 0);
-        fieldcoord[3] = new Field(6, 0);
     }
 
 
@@ -71,7 +66,7 @@ public class Shape {
             }}
 
         for (int j=0; j < 4; j++){
-            if (!gameBoard.boardOfField[fieldcoord[j].x][fieldcoord[j].y+1].isAvaiable()){
+            if (!gameBoard.boardOfField[getFieldCoord()[j].x][getFieldCoord()[j].y+1].isAvaiable()){
                 return false;
             }}
 
