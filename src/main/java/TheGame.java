@@ -7,7 +7,6 @@ public class TheGame implements Runnable {
     private Tetromino tetromino;
     private GUI gui;
 
-
     public static void main(String[] args) {
         (new Thread(new TheGame())).start();
     }
@@ -31,9 +30,7 @@ public class TheGame implements Runnable {
 
             if (tetromino.isFirstMove()){ //tetromino se ještě ani jednou nepohlo
                 System.out.println("gameover");
-
-                Graphics graphics = null;
-               // gui.gameOver(Graphics graphics);
+                gui.paintGO();
 
                 return false;
             }
@@ -53,7 +50,6 @@ public class TheGame implements Runnable {
 
     private void checkIfCantBedeletedRow() {
         int i;
-        int score = 0;
       for (i = 0; i<20; i++){
           if (gameBoard.isRowFull(i)){
               gameBoard.deleteRow(i);
@@ -61,6 +57,8 @@ public class TheGame implements Runnable {
       }
 
     }
+
+
 
 
 

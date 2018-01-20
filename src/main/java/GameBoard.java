@@ -13,6 +13,7 @@ public class GameBoard {
 
     public Field boardOfField[][];
     public Tetromino tetromino;
+    private int score = 0;
 
     int i, j;
 
@@ -107,9 +108,8 @@ public class GameBoard {
       return false;
     }
 
-    public int deleteRow(int nRow) {
+    public void deleteRow(int nRow) {
 
-        int score = 0;
         System.out.println("DELETE ROW");
 
         // deleteRow();
@@ -118,8 +118,15 @@ public class GameBoard {
                 boardOfField[i][j] = boardOfField[i][j - 1];
             }
         }
-        score++;
-        System.out.println("skore: " + score);
+        scorePlusPlus();
+        System.out.println("Skore:" + score);
+    }
+
+    public void scorePlusPlus(){
+        this.score++;
+    }
+
+    public int getScore(){
         return score;
     }
 

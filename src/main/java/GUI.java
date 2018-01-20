@@ -27,6 +27,9 @@ public class GUI extends JFrame implements KeyListener{
     public void repaint() {
         canvas.paint(canvas.getGraphics());
     }
+    public void paintGO(){
+        canvas.gameOver(canvas.getGraphics());
+    }
 
 
     private class MyCanvas extends Canvas {
@@ -61,15 +64,16 @@ public class GUI extends JFrame implements KeyListener{
 
     }
 
+        public void gameOver(Graphics graphics) {
+            graphics.setColor(Color.white);
+            graphics.setFont(new Font("default", Font.BOLD, 30));
+            graphics.drawString("GAME OVER", 50, 300);
+            graphics.setFont(new Font("default", Font.BOLD, 20));
+            graphics.drawString("Skore: "+ String.valueOf(gameBoard.getScore()), 100, 355);
+
+        }
+
 }
-
-    public void gameOver(Graphics graphics) {
-        graphics.setColor(Color.white);
-        graphics.setFont(new Font("default", Font.BOLD, 30));
-        graphics.drawString("GAME OVER", 50, 300);
-        graphics.drawString("Skore: " + gameBoard.deleteRow(0), 50, 300);
-
-    }
 
     public void keyPressed(KeyEvent evt) { //POŠÉFIT, ABY MI NELEZLY TTMNA ZA ROH
 
