@@ -1,4 +1,4 @@
-package main.java;
+package org.helenka;
 
 import javax.swing.*;
 import java.awt.*;

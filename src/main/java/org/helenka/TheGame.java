@@ -1,6 +1,4 @@
-package main.java;
-
-import java.awt.*;
+package org.helenka;
 
 public class TheGame implements Runnable {
     private GameBoard gameBoard;

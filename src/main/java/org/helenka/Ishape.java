@@ -1,7 +1,7 @@
-package main.java;
+package org.helenka;
 import java.awt.*;
 
-public class Ishape extends main.java.Shape implements Tetromino{
+public class Ishape extends Shape implements Tetromino{
 
 private boolean stav = true;
 

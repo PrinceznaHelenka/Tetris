@@ -1,8 +1,8 @@
-package main.java;
+package org.helenka;
 
 import java.awt.*;
 
-public class Oshape extends main.java.Shape implements Tetromino{
+public class Oshape extends Shape implements Tetromino{
 
     public Oshape(Color color, GameBoard gameBoard){
         this.color = color;

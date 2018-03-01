@@ -1,8 +1,8 @@
-package main.java;
+package org.helenka;
 
 import java.awt.*;
 
-public class Lshape extends main.java.Shape implements Tetromino{
+public class Lshape extends Shape implements Tetromino{
 
 private int stav = 1;
 
