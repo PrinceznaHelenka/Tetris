@@ -65,10 +65,11 @@ public class GUI extends JFrame implements KeyListener{
     }
 
         public void gameOver(Graphics graphics) {
-            graphics.setColor(Color.white);
-            graphics.setFont(new Font("default", Font.BOLD, 30));
-            graphics.drawString("GAME OVER", 50, 300);
+            graphics.setColor(Color.black);
+            graphics.setFont(new Font("default", Font.BOLD, 40));
+            graphics.drawString("GAME OVER", 15, 300);
             graphics.setFont(new Font("default", Font.BOLD, 20));
+            graphics.setColor(Color.white);
             graphics.drawString("Skore: "+ String.valueOf(gameBoard.getScore()), 100, 355);
 
         }
